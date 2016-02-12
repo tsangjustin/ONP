@@ -25,15 +25,13 @@ int precedenceIsGreater(char op1, char op2){    // if op1 has greater precedence
 int main() {
 
     int num;
-    scanf("%d", &num);  // get number of expression
-    getchar();  // flush newline for fgets
-    char output[401];
+    scanf("%d\n", &num);  // get number of expression
+    char output[401], stack[401], input[401]; 
     int outputTop = -1;
 
     while (num > 0) {
-        char stack[401];
+		outputTop = -1;
         int stackTop = -1;
-        char input[401];
         int curr = 0;
         fgets(input, 401, stdin);    // take input
         while (curr < strlen(input)-1) {   // also can use "\0"
@@ -69,11 +67,12 @@ int main() {
         if (num != 0){
             output[++outputTop] = '\n';
         }
-    }
-    int i = 0;
+		    int i = 0;
     while(i <= outputTop){
         printf("%c", output[i]);
         i++;
+    }
+
     }
 
     return 0;
